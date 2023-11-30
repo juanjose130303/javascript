@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="salida"></p>
+    <script>
+        let n1 = Number(prompt(" ingrese un numero: "))
+        let n2 = Number(prompt("ingrese un numero: "))
+
+        let salida = `sean dos numeros: ${n1} y ${n2}\n` + "-".repeat(50) + ` la suma es: ${n1 + n2}
+        la resta es ${n1 - n2}
+        el producto es ${n1 * n2}
+        el cociente es ${n1 / n2}
+        el modulo es ${n1 % n2}
+        el potencia es ${Math.pow(n1, 3)}
+        el raiz cuadrada de ${n1} es ${Math.sqrt(n1)}`\n
+
+        console.log(salida)
+        alert(salida)
+        document.getElementById("salida").innerHTML = salida
+
+        console.log(salida)
+        alert(salida)
+    </script>
+</body>
+</html>
