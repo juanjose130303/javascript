@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const ene = 31; const feb = 28; const mar = 31; const abr = 30; const may = 31; const jun = 30; const jul = 31; const ago = 31; const sep = 30; const oct = 31; const nov = 30; const dic = 31;
+const max_mes = 12;
+
+let fecha = prompt("Ingrese la fecha DD/MM/AAAA");
+
+// Parse the input date into day, month, and year
+const partesFecha = fecha.split("/");
+const dia = parseInt(partesFecha[0]);
+const mes = parseInt(partesFecha[1]);
+const año = parseInt(partesFecha[2]);
+
+// Validations
+if (
+    año > 0 &&
+    mes >= 1 &&
+    mes <= max_mes &&
+    dia >= 1 &&
+    dia <= (mes === 2 && año % 4 === 0 ? 29 : eval("ene"))
+) {
+    // Format day and month with two digits
+    const diaFormateado = dia < 10 ? `0${dia}` : dia;
+    const mesFormateado = mes < 10 ? `0${mes}` : mes;
+
+    console.log(`La fecha ingresada es válida: ${diaFormateado}/${mesFormateado}/${año}`);
+} else {
+    console.log("La fecha ingresada no es válida.");
+}
+
+
+    </script>
+</body>
+</html>
