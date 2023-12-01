@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media</title>
+</head>
+<body>
+
+<script>
+  
+  let suma = 0;
+  let cantidadNumeros = 0;
+  let numeros = [];
+
+  
+  while (true) {
+    
+    let input = prompt("Introduce un número positivo. Introduce un número negativo para terminar.");
+
+   
+    let numero = parseFloat(input);
+
+   
+    if (numero < 0) {
+      break; 
+    }
+
+   
+    if (!isNaN(numero)) {
+     
+      suma += numero;
+     
+      cantidadNumeros++;
+     
+      numeros.push(numero);
+    } else {
+      alert("Por favor, introduce un número válido.");
+    }
+  }
+
+  
+  let media = cantidadNumeros > 0 ? suma / cantidadNumeros : 0;
+
+ 
+  let lista = document.createElement("ul");
+
+  
+  for (let i = 0; i < cantidadNumeros; i++) {
+    let li = document.createElement("li");
+    li.textContent = "Número " + (i + 1) + ": " + numeros[i];
+    lista.appendChild(li);
+  }
+
+ 
+  let mediaElemento = document.createElement("li");
+  mediaElemento.textContent = "Media: " + media.toFixed(2);
+
+  
+  lista.appendChild(mediaElemento);
+
+  
+  document.body.appendChild(lista);
+</script>
+
+</body>
+</html>
