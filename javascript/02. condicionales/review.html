@@ -18,21 +18,21 @@
     
     let input = prompt("Introduce un número positivo. Introduce un número negativo para terminar.");
 
-   
+  
     let numero = parseFloat(input);
 
-   
+  
     if (numero < 0) {
       break; 
     }
 
-   
+  
     if (!isNaN(numero)) {
-     
+    
       suma += numero;
-     
+    
       cantidadNumeros++;
-     
+    
       numeros.push(numero);
     } else {
       alert("Por favor, introduce un número válido.");
@@ -42,7 +42,7 @@
   
   let media = cantidadNumeros > 0 ? suma / cantidadNumeros : 0;
 
- 
+
   let lista = document.createElement("ul");
 
   
@@ -52,7 +52,7 @@
     lista.appendChild(li);
   }
 
- 
+
   let mediaElemento = document.createElement("li");
   mediaElemento.textContent = "Media: " + media.toFixed(2);
 
