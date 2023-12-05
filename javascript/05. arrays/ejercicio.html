@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let frutas = ["Pera", "Manzana", "Mandarina", "Banano"]
+        for (let i = 0; i < frutas.length; i++) {
+            console.log(frutas[i]) //recorrido por posición
+        }
+
+            //Recorrido por elementos
+        for (const fruta of frutas) {
+            console.log(fruta)
+        }
+
+        let arr = [4.6, 2.5, 2.5, 2.7]
+
+        arr.forEach(function (e) {
+            consol.log(e)
+        }) //Aca´el forEach aplica la función a cda elemento del array
+        // No crea un nuevo array. SOlo ejecuta.
+
+        //EJEMPLO: Calcular la curva del 8 utulizando forEach
+        arr.forEach(e => console.log(e 0.8 + 1))
+
+        //MAP
+        let curv_8 = arr.map(e => e0.8 + 1)
+
+        //FILTER
+        //Crea un nuevo array con aquellos que cumplan la condición
+        let may_3 = arr.filter(function(e) {
+            if (e >= 3) return e
+        })
+        console.log(may_3)
+
+        let suma_8 = arr.reduce((c, e) => c +(e0.8+1))
+
+        let mis_strings = ["amor", "sol", "carlos", "perro", "gatos", "hol"]
+        let reduc_strings = mis_strings.filter(function(e) {
+            if (e.length >= 4) return e
+        })
+
+        /reduc_strings = mis_strings.filter(e => if (e.length >= 4){
+            return e
+
+        }*/
+
+        console.log(reduc_strings)
+    </script>
+</body>
+</html>
