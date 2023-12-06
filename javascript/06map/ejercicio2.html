@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Facturas</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 50%;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    </style>
+</head>
+<body>
+    <h1>Gestor de Facturas</h1>
+
+    <label>Número de Factura:</label>
+    <input type="text" id="numeroFactura" required>
+    <label>Costo:</label>
+    <input type="text" id="costoFactura" required>
+    <button onclick="agregarFactura()">Agregar Factura</button>
+
+    <table id="tablaFacturas">
+    <tr>
+        <th>Número de Factura</th>
+        <th>Costo</th>
+        <th>Pagar</th>
+    </tr>
+    </table>
+<p id="resumen"></p>
+
+    <script>
+    const facturas = {};
+
+    function agregarFactura() {
+        const numeroFactura = document.getElementById('numeroFactura').value;
+        const costoFactura = parseFloat(document.getElementById('costoFactura').value);
+
+        facturas[numeroFactura] = costoFactura;
+
+        mostrarFacturas();
+        mostrarResumen();
+    }
+
+    function pagarFactura(numero) {
+        delete facturas[numero];
+        mostrarFacturas();
+        mostrarResumen();
+    }
+
+    function mostrarFacturas() {
+        const tablaFacturas = document.getElementById('tablaFacturas');
+        tablaFacturas.innerHTML = '<tr><th>Número de Factura</th><th>Costo</th><th>Pagar</th></tr>';
+
+    for (const numero in facturas) {
+        const costo = facturas[numero];
+        const fila = <tr><td>${numero}</td><td>${costo}</td><td><button onclick="pagarFactura('${numero}')">Pagar</button></td></tr>;
+        tablaFacturas.innerHTML += fila;
+    }
+    }
+
+    function mostrarResumen() {
+        const totalFacturas = Object.keys(facturas).length;
+        const totalCobrado = Object.values(facturas).reduce((acc, costo) => acc + costo, 0);
+        const totalPendiente = totalCobrado;
+
+        const resumen = Resumen:<br>Total Facturas Ingresadas: ${totalFacturas}<br>Total Cobrado: ${totalCobrado}<br>Total Pendiente de Cobro: ${totalPendiente};
+        document.getElementById('resumen').innerHTML = resumen;
+    }
+    </script>
+</body>
+</html>

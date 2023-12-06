@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function contarPalabras(texto) {
+    const palabras = texto[0].toLowerCase().match(/\b\w+\b/g);
+    const conteo = {};
+
+    palabras.forEach(palabra => {
+    conteo[palabra] = (conteo[palabra] || 0) + 1;
+});
+
+    console.log("Palabra\t\t\tVeces");
+    for (const palabra in conteo) {
+    console.log(`${palabra.padEnd(15)}\t${conteo[palabra]}`);
+    }
+}
+
+const texto = ["Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, possimus! sit amet consectetur"];
+contarPalabras(texto);
+    </script>
+</body>
+</html>
