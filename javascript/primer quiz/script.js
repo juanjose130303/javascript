@@ -24,6 +24,7 @@ let tasaInteresAnual = 12;
       let interes = fila.insertCell(4);
       let total = fila.insertCell(5);
 
+      
       pago.innerHTML = i;
       valorMensual.innerHTML = cuotaMensual.toFixed(2);
       valor.innerHTML = balance.toFixed(2);
@@ -37,3 +38,4 @@ let tasaInteresAnual = 12;
 
       console.log(i + "\t" + cuotaMensual.toFixed(2) + "\t\t" + balance.toFixed(2) + "\t" + principalPago.toFixed(2) + "\t" + interesPago.toFixed(2) + "\t" + totalPagado.toFixed(2));
     }
+
