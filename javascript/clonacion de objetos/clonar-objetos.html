@@ -1,0 +1,17 @@
+<script>
+    const persona = {
+        name: "John Doe",
+        age: 30,
+        address: {
+            street: "Main Street",
+            city: "New York",
+            state: "NY"
+        }
+    }
+
+    const clonedPerson = Object.assign({}, persona)
+    console.log(clonedPerson)
+
+    const clonado2 = { ...persona }
+    console.log(clonado2)
+</script>
