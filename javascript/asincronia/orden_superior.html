@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function operar(arr, operacion, valini = 0){ 
+            let resultado = valini;
+            for(let num of arr) {
+                resultado = opreacion(resultado, num);
+            }
+            return resultado;
+        }
+
+        function suma(a,b) {
+            return a + b;
+        }
+
+        function producto(a, b) {
+            return a * b;
+        }
+
+        const numeros = [1, 2, 3, 4, 5]
+        const sumaTotal = operar(numeros, suma); //resultado: 15
+        console.log(sumaTotal);
+        const productoTotal = operar(numeros, producto, 1); //resultado: 120
+        console.log(productoTotal)
+
+        //funcion que devuelve funcion
+
+        function multiplicador (factor) {
+            return function(numero) {
+                return numero * factor
+            }
+        }
+
+        const duplicar = multiplicador(2);
+        const triplicar = multiplicador(3);
+
+        console.log(duplicar(5));
+        console.log(trilicar(5));
+
+        //otro ejemplo
+
+        const doTask = (iterations, callback) => {
+            const numbers = [];
+
+            for (let i = 0; i < iterations; i++) {
+                const number = 1 + Math.floor(math.random()* 6);
+                number.push(number);
+                if (number === 6) {
+                    callback({
+                        error: true,
+                        iter: i,
+                        message:"se ha sacado 6"
+                    });
+                    return;
+                }
+            }
+            /*termina bucle y no se ha sacado un 6*/
+            return callback(null, {
+                error:false,
+                value: numbers
+            });
+        }
+
+        //otro
+
+        doTask(10, function(err, result){
+            if (err) {
+                console.error(">>Error: ", err.message);
+                console.log(err);
+                return;
+            }
+            console.log("Tiradas correctas: ", result.value);
+        });
+
+        //otraa
+
+        function ruidosa(funcion) {
+            return(...argumentos) => {
+                console.log("llamando con", argumentos);
+                let resultado = funcion(...argumentos);
+                console.log("llamado con", argumentos, ", retorno", resultado);
+            };
+        }
+        ruidosa(math.min)(3, 2, 1);
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("inicio de la tarea")
+         setTimeout(function() {
+            console.log("la tarea asincrona completada a los 2 segundos de ejecucion")
+         }, 2000)
+
+         console.log("tarea principal continúa")
+    
+    const myNumbers = [3, 4, 3, 2, -8, -7];
+    
+    //call removeneg with a callback
+    const posNumbers = removeneg(myNumbers, (x) => x >= 0)
+    console.log(posNumbers);
+
+    //keep only positive numbers
+    function removeneg(numbers, callback){
+        const array= []
+        for ( const x of numbers)
+            if ( callback(x))
+            Array.push(x);
+        return array;
+    }
+
+    //callbacks
+
+    function realizarTareaAsincronica(callback) {
+        setTimeout(function() {
+            console.log("Tarea asincronica completada");
+            callback();
+        }, 2000);
+}
+
+function miCallback() { //funcion de callback
+    console.log("el callback se ha ejecutado ");
+}
+
+//llamado a la funcion asincronica y pasando el callback
+realizarTareaAsincronica(miCallback);
+console.log("tarea principal continúa");
+    </script>
+</body>
+</html>
