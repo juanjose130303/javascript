@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const fechaEntregaPactada = new Date(prompt('Ingrese la fecha de entrega pactada (YYYY-MM-DD):'));
+const fechaEntregaReal = new Date(prompt('Ingrese la fecha de entrega real (YYYY-MM-DD):'));
+
+const diferenciaDias = Math.floor((fechaEntregaReal - fechaEntregaPactada) / (1000 * 60 * 60 * 24));
+
+let multa = 0;
+let mensaje = '';
+
+if (diferenciaDias <= 3) {
+    multa = 7000 * diferenciaDias;
+} else if (diferenciaDias > 3 && diferenciaDias <= 4) {
+    multa = 10000 * diferenciaDias;
+    mensaje = '';
+} else {
+    multa = 10000 * diferenciaDias;
+    mensaje = 'Además, no se permitirá préstamo por 6 meses.';
+}
+
+console.log(`Han pasado ${diferenciaDias} días. La multa es de $${multa}. ${mensaje}`);
+    </script>
+</body>
+</html>

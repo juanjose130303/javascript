@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const datos = [
+            {
+                id: 1,
+                title: "iron man",
+                year: 2008
+            },
+            {
+                id: 2,
+                title: "spiderman: homecoming",
+                year: 2017
+            },
+            {
+                id: 3,
+                title: "avemgers",
+                year: 2019
+            },
+        ]
+        //callbacks
+        /*const getDatos = () => {
+            setTimeout( () => {
+                return datos;
+            }, 1500)
+        }
+
+        console.log(getDatos)*/
+datos = []
+//promesas
+const getDatos = () => {
+    return new promise((resolve, reject) => {
+        if (datos.length === 0) {
+            reject(new Error("Error, no existen datos."))
+        }
+        setTimeout( () => {
+            resolve(datos);
+        },1500)
+    })
+}
+
+getDatos()
+    .then((datos) => { console.table(datos)})
+    .catch((err) => { console.error(err.message)})
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+        /*const miPromesa = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("operacion completada con exito!");
+            }, 2000);
+        });
+
+        console.log("Inicio de la operacion");
+
+        miPromesa
+            .then(resultado => {
+                console.log(resultado);
+            })
+            .catch(error => {
+                console.error("error:", error);
+            })
+
+        console.log("Tareas adicionales");*/
+
+        //otro
+
+        const miPromesaa = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const exito = true;
+                if (exito) {
+                    resolver("la promesa se cumplio con exito!");
+                } else {
+                    reject("La promesa falló :c");
+                }
+            },2000)
+        });
+
+        miPromesaa
+        .then(resultado => {
+            console.log("Exito", resultado);
+        })
+
+        .catch(error => {
+            console.error("error:", error);
+        });
+    </script>
+</body>
+</html>
