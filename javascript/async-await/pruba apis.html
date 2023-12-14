@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*function getNombre(nomusu) {
+            const url = `https://api.github.com/users/${nomusu}`;
+            fetch(url)
+                .then(respuesta => respuesta.json())
+                .then(json => {
+                    console.log(json.name)
+                })
+                .catch(error => console.error("no existe. " + err.message)
+        }
+
+        getNombre("juanjose130303")*/
+
+async function getNombre(nompoke) {
+    const url = `https://pokeapi.co/api/v2/pokemon/${nompoke}`;
+    
+    const respuesta = await fetch(url);
+    const json = await respuesta.json();
+
+    console.log(respuesta);
+}
+
+getNombre("pikachu");
+    </script>
+</body>
+</html>
